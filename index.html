@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+background: #111;
+}
+
+.wrapper {
+position: relative;
+height: 55px;
+width: 320px;
+}
+
+input {
+width: 100%;
+height: 100%;
+border: none;
+padding-left: 15px;
+font-size: 18px;
+outline: none;
+border-radius: 15px;
+background: #fff;
+color: #111;
+}
+
+input::placeholder {
+font-size: 17px;
+color: #111;
+opacity: 0.8;
+}
+
+span {
+position: absolute;
+right: 15px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 20px;
+color: #111;
+cursor: pointer;
+display: none;
+}
+
+input:valid~span {
+display: block;
+}
+
+span i.hide-btn::before {
+content: "\f070";
+}
+</style>
+<script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="wrapper">
+<input type="password" placeholder="Enter Password" required>
+<span class="show-btn">
+<i class="far fa-eye"></i>
+</span>
+</div>
+<script>
+  const password = document.querySelector("input");
+  const showpassword = document.querySelector("span i");
+  showpassword.onclick = (() => {
+  if (password.type === "password") {
+  password.type = "text";
+  showpassword.classList.add("hide-btn");
+  } else {
+  password.type = "password";
+  showpassword.classList.remove("hide-btn");
+  }
+  });
+  </script>
+</body>
+</html>
